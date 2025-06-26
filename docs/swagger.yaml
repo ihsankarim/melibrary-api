@@ -1,0 +1,11 @@
+basePath: /
+host: localhost:3000
+info:
+  contact: {}
+  description: A digital library API
+  title: Melibrary API
+  version: "1.0"
+paths: {}
+schemes:
+- http
+swagger: "2.0"

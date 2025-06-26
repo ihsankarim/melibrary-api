@@ -1,3 +1,10 @@
+// @title Melibrary API
+// @version 1.0
+// @description A digital library API
+// @host localhost:3000
+// @BasePath /
+// @schemes http
+
 package main
 
 import (
@@ -7,8 +14,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/ihsankarim/melibrary-api/config"
 	"github.com/ihsankarim/melibrary-api/database"
+	_ "github.com/ihsankarim/melibrary-api/docs"
 	"github.com/ihsankarim/melibrary-api/routes"
 	"github.com/joho/godotenv"
+	fiberSwagger "github.com/swaggo/fiber-swagger"
 )
 
 func main() {
@@ -24,6 +33,7 @@ func main() {
 
 	app := fiber.New()
 	routes.Setup(app)
+	app.Get("/swagger/*", fiberSwagger.WrapHandler)
 
 	log.Fatal(app.Listen(":" + os.Getenv("PORT")))
 }
