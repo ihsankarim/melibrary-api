@@ -1,6 +1,8 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+)
 
 type Book struct {
 	gorm.Model
@@ -8,6 +10,6 @@ type Book struct {
 	Title       string   `json:"title"`
 	Author      string   `json:"author"`
 	Description string   `json:"description"`
-	CategoryId  uint     `json:"category_id"`
-	Category    Category `json:"category" gorm:"foreignKey:CategoryID"`
+	CategoryID  uint     `json:"category_id"`
+	Category    Category `json:"category" gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL"`
 }

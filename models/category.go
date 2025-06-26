@@ -6,5 +6,5 @@ type Category struct {
 	gorm.Model
 
 	Name  string `json:"name"`
-	Books []Book `json:"books"`
+	Books []Book `json:"books,omitempty"`
 }
